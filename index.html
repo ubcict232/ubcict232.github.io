@@ -1,0 +1,203 @@
+<html>
+  <head>
+    <!--
+      Author : Elias Bayona
+      ID : 201502900
+    -->
+    <title> UBCICT </title>
+    <link rel="stylesheet" type="text/css" href="css/mainStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/navigationBar.css">
+    <link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
+    <!--link rel="stylesheet" href="css/animate.css"-->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+    <script src="java/typed.js"></script>
+    <script src="java/animScript.js"></script>
+    <script src="java/jquery-3.2.1.js"></script>
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function(){
+
+
+
+      Typed.new('.element', {
+        strings: ["Microsoft Development", "Xamarin Iphone, Android Dev","Microsoft Azure Cloud.", "Azure Machine Learning","3D Game Development","RIVAL THEORY RAIN AI","UNITY 5 GAME ENGINE","CRY ENGINE 3"],
+        typeSpeed: 0,
+        backDelay: 1500,
+        loop: true
+      });
+      //alert("hello?");
+      Typed.new('.hook', {
+        strings: [  "Can you innovate?", "Do you have the passion!!!"," Do you have the drive to push boundries",
+          "Or you simply just dont know where to start!!!"],
+        typeSpeed: 0,
+        backDelay: 1500,
+        loop: true
+      });
+  });
+
+</script>
+
+<script>
+$(document).ready(function(){
+  $("#player, .GameDesignSection #player").fadeOut();
+
+  $(".MicrosoftSection .close").click(function(){
+    var video = document.getElementById("mp4");
+    video.pause();
+    $(".nav").fadeIn();
+    $(".MicrosoftSection #play").fadeIn();
+    $(".MicrosoftSection #player").fadeIn();
+    $(".MicrosoftSection .titles").fadeIn();
+    $(".microsoftLogos").fadeIn();
+    $(".MicrosoftSection #player").fadeOut();
+  });
+
+  $(".GameDesignSection .close").click(function(){
+    var video = document.getElementById("mp42");
+    video.pause();
+    $(".nav").fadeIn();
+    $(".GameVideo #play").fadeIn();
+    $(".GameDesignLogos .titles").fadeIn();
+    $(".GameDesignLogos").fadeIn();
+    $(".GameDesignSection #player").fadeOut();
+  });
+
+  $(".Video #play").click(function(){
+      var video = document.getElementById("mp4");
+      video.play();
+
+    //document.body.style.overflow = "hidden";
+      $("body").scrollTop(660);
+      $(".nav").fadeOut();
+      $(".MicrosoftSection #play").fadeOut();
+      $(".MicrosoftSection .titles").fadeOut();
+      $(".microsoftLogos").fadeOut();
+      $("#player").fadeIn();
+        //console.log(  document.window.scrollTop());
+  });
+  $(".downArrow").click(function(){
+      $(document).scrollTop(650);
+  });
+  $(".GameVideo #play").click(function(){
+      var video2 = document.getElementById("mp42");
+      video2.play();
+      $(".nav").fadeOut();
+      $("body").scrollTop(1325);
+      $(".GameDesignSection #play").fadeOut();
+      $("GameDesignSection .titles").fadeOut();
+      $(".GameDesignLogos").fadeOut();
+      $(".GameDesignSection #player").fadeIn();
+  });
+
+  $(window).scroll(function() {
+    var video = document.getElementById("mp4");
+    var video2 = document.getElementById("mp42");
+      if ($(document).scrollTop() < 660) {
+        $(".nav").fadeIn();
+      }
+      if(!video.ended){
+        if($(document).scrollTop() > 650 && $(document).scrollTop() < 1325){
+          //alert(video.ended);
+            $(".nav").fadeOut();
+          }else{
+            $(".nav").fadeIn();
+         }
+    }
+    });
+
+});
+</script>
+  </head>
+  <body>
+    <div class="major">
+      <ul class="nav">
+        <li><img class="logo" href="index.html" src="img/UBCICT_bgless.png" width="200px" height="65px"></li>
+        <ul class="nav" style="left: 300px;">
+          <li><a class="active" href="index.html">Home</a></li>
+          <li><a href="ShowCase.html">ShowCase</a></li>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </ul>
+      <div class="MainSection" >
+        <p>
+           UBCICT WE BREATH INNOVATION
+        </p>
+        <span class="element"></span>
+        <button style="background-color: #2869ed; width: 100px; height: 30px; color: #ffffff; float:right; margin-top:350px; margin-right:630px;  border: none; border-radius:5px;  text-align: center;">
+        <a href="register.html" style="text-decoration:none; color:white;">JOIN US</a>
+        </button>
+        <img class="downArrow" src="img\down-arrow.png" width="50px" height="50px" />
+      </div>
+      <div class="MicrosoftSection">
+      <div id="shadow">
+          <div class="Video" >
+              <img id="play" class="animated zoomin" src="img/play_arrow.png" width="140px" height="100px" >
+              <h1 class="titles"> Microsoft Development </h1>
+          </div>
+          <div class="Video" id="player">
+            <img src="img/x-mark-512.png" class="close"></img>
+              <video id="mp4">
+                <source src="img/Feedmusic.mp4" type="video/mp4">
+              </video>
+          </div>
+
+          <ul class="microsoftLogos">
+            <li><img src="img/aspNet.png" width="250px" height="120px"/></li>
+            <li><img src="img/AZURE2.png" width="250px" height="120px"/></li>
+            <li><img src="img/Xamarin.png" width="250px" height="120px"/></li>
+          </ul>
+      </div>
+
+      </div>
+      <div class="GameDesignSection">
+        <div id="shadow">
+          <div class="GameVideo">
+            <img id="play" src="img/play_arrow.png" width="140px" height="100px" >
+            <h1> UNITY 5  3D GAME DEVELOPMENT </h1>
+          </div>
+          <div class="Video" id="player">
+              <img src="img/x-mark-512.png" class="close"></img>
+              <video id="mp42">
+                <source src="img/Feedmusic.mp4" type="video/mp4">
+              </video>
+          </div>
+          <div class="GameDesignLogos">
+            <ul>
+              <li><img src="img/UNITYT.png" width="250px" height="120px"/></li>
+              <li><img src="img/RAINAI.png" width="250px" height="200px"/></li>
+              <li><img src="img/CRYENGINE.png" width="250px" height="120px"/></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!--div class="WebDesignSection">
+        <h1 class="titles"> WEB DEVELOPMENT </h1>
+        <div>
+          <p>
+            Client side: XHTML CSS JAVA-SCRIPT<br>
+            SERVER SIDE: PHP PYTHON MySQL
+          </p>
+        </div>
+
+      </div-->
+      <div class="RegisterSection">
+        <h1 style="position:relative; top:100; text-align:center;">UNIVERSITY OF BOTSWANA COMPUTER SCIENCE <br>
+          SOCITY OF INFORMATION AND COMMUNICATION TECHNOLOGY<h1>
+        <div class="hook" style="position:relative; top:120px; color:black; float:left; left:400px; font-size:38;"></div>
+
+        <button style="position:relative; border:none; border-radius:2px; background-color:#2869ed; width:100px; height:35px;float:right; right:630px; top: 250px;">
+        <a href="register.html" style="color:white; text-decoration:none;">  REGISTER </a>
+         </button>
+        <img style="position:relative; float:right; top:400px; right:900px;" src="img/UBCICT_bgless.png" width="200px" height="150px">
+        <img style="position:relative; float:right; top:390px;right:0px;" src="img/ublogo1.png" width="200px" height="150px">
+      </div>
+    </div>
+  </body>
+  <footer class="footer" >
+             <p>Copyright &copy; Group 2 LIS 104 Website 2017 </p>
+  </footer>
+</html>

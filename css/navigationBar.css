@@ -1,0 +1,38 @@
+.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.01);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    margin-top: 10px;
+    font-family: 'Roboto', sans-serif;
+}
+
+li a:hover:not(.active) {
+  color:purple;
+}
+
+
+.logo {
+  position:relative;
+  float: left;
+  left: 50px;
+  top: 0px;
+
+}
