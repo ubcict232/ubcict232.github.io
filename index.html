@@ -46,6 +46,7 @@ $(document).ready(function(){
   $(".MicrosoftSection .close").click(function(){
     var video = document.getElementById("mp4");
     video.pause();
+    video.currentTime = 0;
     $(".nav").fadeIn();
     $(".MicrosoftSection #play").fadeIn();
     $(".MicrosoftSection #player").fadeIn();
@@ -57,6 +58,7 @@ $(document).ready(function(){
   $(".GameDesignSection .close").click(function(){
     var video = document.getElementById("mp42");
     video.pause();
+    video.currentTime = 0;
     $(".nav").fadeIn();
     $(".GameVideo #play").fadeIn();
     $(".GameDesignLogos .titles").fadeIn();
@@ -80,6 +82,7 @@ $(document).ready(function(){
   $(".downArrow").click(function(){
       $(document).scrollTop(650);
   });
+
   $(".GameVideo #play").click(function(){
       var video2 = document.getElementById("mp42");
       video2.play();
@@ -91,21 +94,51 @@ $(document).ready(function(){
       $(".GameDesignSection #player").fadeIn();
   });
 
+  // MOVE NAVIGATION OUT OF THE WAY WHEN PLAYING VIDEO
   $(window).scroll(function() {
     var video = document.getElementById("mp4");
     var video2 = document.getElementById("mp42");
+
       if ($(document).scrollTop() < 660) {
-        $(".nav").fadeIn();
+          $(".nav").fadeIn();
       }
-      if(!video.ended){
-        if($(document).scrollTop() > 650 && $(document).scrollTop() < 1325){
-          //alert(video.ended);
-            $(".nav").fadeOut();
+      if(video.currentTime > 1 ){
+          if($(document).scrollTop() > 650 && $(document).scrollTop() < 1325){
+                //alert(video.ended);
+                $(".nav").fadeOut();
           }else{
-            $(".nav").fadeIn();
-         }
+                $(".nav").fadeIn();
+                //change color of the nav based on where we are on the screen
+                if($(document).scrollTop() > 650 ){
+                    document.getElementsByClassName("nav")[0].style.backgroundColor = "black";
+                }else{
+                    document.getElementsByClassName("nav")[0].style.backgroundColor = "transparent";
+                }
+           }
+    }else if(video2.currentTime > 1 ){
+          if($(document).scrollTop() > 1225 && $(document).scrollTop() < 2000){
+                  //alert(video.ended);
+                  $(".nav").fadeOut();
+          }else{
+                  $(".nav").fadeIn();
+                  //change color of the nav based on where we are on the screen
+                  if($(document).scrollTop() > 650 ){
+                    document.getElementsByClassName("nav")[0].style.backgroundColor = "black";
+                  }else{
+                    document.getElementsByClassName("nav")[0].style.backgroundColor = "transparent";
+                  }
+          }
+    }else{
+          $(".nav").fadeIn();
+          //change color of the nav based on where we are on the screen
+            if($(document).scrollTop() > 650 ){
+              document.getElementsByClassName("nav")[0].style.backgroundColor = "black";
+            }else{
+              document.getElementsByClassName("nav")[0].style.backgroundColor = "transparent";
+            }
     }
-    });
+
+  });
 
 });
 </script>
@@ -113,7 +146,7 @@ $(document).ready(function(){
   <body>
     <div class="major">
       <ul class="nav">
-        <li><img class="logo" href="index.html" src="img/UBCICT_bgless.png" width="200px" height="65px"></li>
+        <li><img class="logo" alt="logo" src="img/UBCICT_bgless.png" width="200" height="65"></li>
         <ul class="nav" style="left: 300px;">
           <li><a class="active" href="index.html">Home</a></li>
           <li><a href="ShowCase.html">ShowCase</a></li>
@@ -129,25 +162,25 @@ $(document).ready(function(){
         <button style="background-color: #2869ed; width: 100px; height: 30px; color: #ffffff; float:right; margin-top:350px; margin-right:630px;  border: none; border-radius:5px;  text-align: center;">
         <a href="register.html" style="text-decoration:none; color:white;">JOIN US</a>
         </button>
-        <img class="downArrow" src="img\down-arrow.png" width="50px" height="50px" />
+        <img class="downArrow" alt="arrow" src="img\down-arrow.png" width="50" height="50" />
       </div>
       <div class="MicrosoftSection">
       <div id="shadow">
           <div class="Video" >
-              <img id="play" class="animated zoomin" src="img/play_arrow.png" width="140px" height="100px" >
+              <img id="play" alt="playbutton" class="animated zoomin" src="img/play_arrow.png" width="140px" height="100px" >
               <h1 class="titles"> Microsoft Development </h1>
           </div>
           <div class="Video" id="player">
-            <img src="img/x-mark-512.png" class="close"></img>
+            <img src="img/x-mark-512.png"  alt="closebutton" class="close"></img>
               <video id="mp4">
                 <source src="img/Feedmusic.mp4" type="video/mp4">
               </video>
           </div>
 
           <ul class="microsoftLogos">
-            <li><img src="img/aspNet.png" width="250px" height="120px"/></li>
-            <li><img src="img/AZURE2.png" width="250px" height="120px"/></li>
-            <li><img src="img/Xamarin.png" width="250px" height="120px"/></li>
+            <li><img src="img/aspNet.png" alt="asp.net" width="250" height="120"/></li>
+            <li><img src="img/AZURE2.png" alt="AZURE2" width="250" height="120"/></li>
+            <li><img src="img/Xamarin.png" alt="Xamarin" width="250" height="120"/></li>
           </ul>
       </div>
 
@@ -155,20 +188,20 @@ $(document).ready(function(){
       <div class="GameDesignSection">
         <div id="shadow">
           <div class="GameVideo">
-            <img id="play" src="img/play_arrow.png" width="140px" height="100px" >
+            <img id="play" alt="playarrow" src="img/play_arrow.png" width="140" height="100" >
             <h1> UNITY 5  3D GAME DEVELOPMENT </h1>
           </div>
           <div class="Video" id="player">
-              <img src="img/x-mark-512.png" class="close"></img>
+              <img src="img/x-mark-512.png" alt="closebutton" class="close"></img>
               <video id="mp42">
                 <source src="img/Feedmusic.mp4" type="video/mp4">
               </video>
           </div>
           <div class="GameDesignLogos">
             <ul>
-              <li><img src="img/UNITYT.png" width="250px" height="120px"/></li>
-              <li><img src="img/RAINAI.png" width="250px" height="200px"/></li>
-              <li><img src="img/CRYENGINE.png" width="250px" height="120px"/></li>
+              <li><img src="img/UNITYT.png" alt="UNITY" width="250" height="120"/></li>
+              <li><img src="img/RAINAI.png" alt="RAINAI" width="250" height="200"/></li>
+              <li><img src="img/CRYENGINE.png" alt="CryEngine" width="250" height="120"/></li>
             </ul>
           </div>
         </div>
@@ -186,14 +219,15 @@ $(document).ready(function(){
       </div-->
       <div class="RegisterSection">
         <h1 style="position:relative; top:100; text-align:center;">UNIVERSITY OF BOTSWANA COMPUTER SCIENCE <br>
-          SOCITY OF INFORMATION AND COMMUNICATION TECHNOLOGY<h1>
+          SOCITY OF INFORMATION AND COMMUNICATION TECHNOLOGY
+        <h1>
         <div class="hook" style="position:relative; top:120px; color:black; float:left; left:400px; font-size:38;"></div>
 
         <button style="position:relative; border:none; border-radius:2px; background-color:#2869ed; width:100px; height:35px;float:right; right:630px; top: 250px;">
         <a href="register.html" style="color:white; text-decoration:none;">  REGISTER </a>
          </button>
-        <img style="position:relative; float:right; top:400px; right:900px;" src="img/UBCICT_bgless.png" width="200px" height="150px">
-        <img style="position:relative; float:right; top:390px;right:0px;" src="img/ublogo1.png" width="200px" height="150px">
+        <img style="position:relative; float:right; top:400px; right:900px;" alt="logo" src="img/UBCICT_bgless.png" width="200px" height="150px">
+        <img style="position:relative; float:right; top:390px;right:0px;"alt="UBLogo" src="img/ublogo1.png" width="200px" height="150px">
       </div>
     </div>
   </body>
