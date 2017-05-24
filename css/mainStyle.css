@@ -270,3 +270,13 @@ top: 450;
   width: inherit;
   top:-25;
 }
+.discription,.contact{
+  margin-top: 100px;
+  width:75%;
+  height: 100%;
+  background-color: whiteSmoke;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+
+}

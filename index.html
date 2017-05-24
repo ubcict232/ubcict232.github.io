@@ -13,9 +13,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 
     <script src="java/typed.js"></script>
-    <script src="java/animScript.js"></script>
+    <!--script src="java/animScript.js"></script-->
     <script src="java/jquery-3.2.1.js"></script>
 
+<!-- Script to generate the typed text -->
 <script>
 
   document.addEventListener('DOMContentLoaded', function(){
@@ -28,7 +29,7 @@
         backDelay: 1500,
         loop: true
       });
-      //alert("hello?");
+
       Typed.new('.hook', {
         strings: [  "Can you innovate?", "Do you have the passion!!!"," Do you have the drive to push boundries",
           "Or you simply just dont know where to start!!!"],
@@ -40,10 +41,13 @@
 
 </script>
 
+<!-- Script to handle the animations and scrolling
+ of the page based on different conditions-->
 <script>
 $(document).ready(function(){
   $("#player, .GameDesignSection #player").fadeOut();
 
+ // close the video and reset the ui elements to thier original postions
   $(".MicrosoftSection .close").click(function(){
     var video = document.getElementById("mp4");
     video.pause();
@@ -56,6 +60,7 @@ $(document).ready(function(){
     $(".MicrosoftSection #player").fadeOut();
   });
 
+// close the video and reset the ui elements to thier original postions
   $(".GameDesignSection .close").click(function(){
     var video = document.getElementById("mp42");
     video.pause();
@@ -67,11 +72,10 @@ $(document).ready(function(){
     $(".GameDesignSection #player").fadeOut();
   });
 
+// play the video and clear ui elements
   $(".Video #play").click(function(){
       var video = document.getElementById("mp4");
       video.play();
-
-    //document.body.style.overflow = "hidden";
       $("body").scrollTop(660);
       $(".nav").fadeOut();
       $(".MicrosoftSection #play").fadeOut();
@@ -80,10 +84,13 @@ $(document).ready(function(){
       $("#player").fadeIn();
         //console.log(  document.window.scrollTop());
   });
+
+  // navigate to a section in a page
   $(".downArrow").click(function(){
       $(document).scrollTop(650);
   });
 
+// play the video and clear ui elements
   $(".GameVideo #play").click(function(){
       var video2 = document.getElementById("mp42");
       video2.play();
@@ -105,7 +112,6 @@ $(document).ready(function(){
       }
       if(video.currentTime > 1 ){
           if($(document).scrollTop() > 650 && $(document).scrollTop() < 1325){
-                //alert(video.ended);
                 $(".nav").fadeOut();
           }else{
                 $(".nav").fadeIn();
@@ -118,7 +124,6 @@ $(document).ready(function(){
            }
     }else if(video2.currentTime > 1 ){
           if($(document).scrollTop() > 1225 && $(document).scrollTop() < 2000){
-                  //alert(video.ended);
                   $(".nav").fadeOut();
           }else{
                   $(".nav").fadeIn();
@@ -153,8 +158,10 @@ $(document).ready(function(){
           <li><a href="ShowCase.html">ShowCase</a></li>
           <li><a href="events.html">Events</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="contacts.html">Contact us</a></li>
         </ul>
       </ul>
+      <!--MAIN SECTION BEGINS-->
       <div class="MainSection" >
         <p>
            UBCICT WE BREATH INNOVATION
@@ -165,6 +172,9 @@ $(document).ready(function(){
         </button>
         <img class="downArrow" alt="arrow" src="img\down-arrow.png" width="50" height="50" />
       </div>
+      <!-- END OF MAIN SECTION -->
+
+      <!-- Microsoft section -->
       <div class="MicrosoftSection">
       <div id="shadow">
           <div class="Video" >
@@ -184,8 +194,10 @@ $(document).ready(function(){
             <li><img src="img/Xamarin.png" alt="Xamarin" width="250" height="120"/></li>
           </ul>
       </div>
-
       </div>
+        <!--End of Microsoft section -->
+
+        <!--GameDesignSection begins -->
       <div class="GameDesignSection">
         <div id="shadow">
           <div class="GameVideo">
@@ -207,6 +219,7 @@ $(document).ready(function(){
           </div>
         </div>
       </div>
+        <!--End of GameDesignSection -->
 
       <!--div class="WebDesignSection">
         <h1 class="titles"> WEB DEVELOPMENT </h1>
@@ -218,6 +231,8 @@ $(document).ready(function(){
         </div>
 
       </div-->
+
+        <!-- RegisterSection begins -->
       <div class="RegisterSection">
         <h1 style="position:relative; top:100; text-align:center;">UNIVERSITY OF BOTSWANA COMPUTER SCIENCE <br>
           SOCITY OF INFORMATION AND COMMUNICATION TECHNOLOGY
@@ -231,6 +246,8 @@ $(document).ready(function(){
         <img style="position:relative; float:right; top:390px;right:0px;" alt="UBLogo" src="img/ublogo1.png" width="200" height="150">
       </div>
     </div>
+      <!--End of RegisterSection -->
+
   </body>
   <footer class="footer" >
              <p>Copyright &copy; Group 2 LIS 104 Website 2017 </p>
