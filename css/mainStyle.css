@@ -15,7 +15,7 @@ body{
 .downArrow{
 position:relative;
 float:left;
-left: 640;
+left: 650;
 top: 450;
 }
 
@@ -81,6 +81,11 @@ top: 450;
 
 }
 
+.detailsSection{
+  height: 100%;
+  width: 100%;
+}
+
 .MicrosoftSection{
   position: relative;
   background-image: url(../img/csStudents.jpg);
@@ -90,6 +95,7 @@ top: 450;
   height: 100%;
   width: 100%;
 }
+
 .MainSection p{
   font-family: Vidaloka serif;
 

@@ -1,255 +1,555 @@
-
 <html>
-  <head>
-    <!--
-      Author : Elias Bayona
-      ID : 201502900
-    -->
-    <title> UBCICT </title>
-    <link rel="stylesheet" type="text/css" href="css/mainStyle.css">
-    <link rel="stylesheet" type="text/css" href="css/navigationBar.css">
-    <link href="https://fonts.googleapis.com/css?family=Vidaloka" rel="stylesheet">
-    <!--link rel="stylesheet" href="css/animate.css"-->
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 
-    <script src="java/typed.js"></script>
-    <!--script src="java/animScript.js"></script-->
+<head>
+    <meta http-equiv="X-UA-Compatable" content="IE=edge, chrome">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <script src="java/jquery-3.2.1.js"></script>
+    <script src="java/typed.js"></script>
+    <script src="java/ScrollMagic.js"></script>
+    <script src="java/plugins/TweenMax.js"></script>
+    <script src="java/plugins/TimelineMax.js"></script>
+    <script src="java/plugins/TweenLite.min.js"></script>
+    <script src="java/plugins/TimelineLite.min.js"></script>
+    <script src="java/plugins/animation.gsap.js"></script>
+    <script src="java/plugins/debug.addIndicators.js"></script>
+    <script src="java/plugins/CSSPlugin.js"></script>
+    <script src="java/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/navigationBar.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <title>UBCICT</title>
 
-<!-- Script to generate the typed text -->
-<script>
-
-  document.addEventListener('DOMContentLoaded', function(){
-
-
-
-      Typed.new('.element', {
-        strings: ["Microsoft Development", "Xamarin Iphone, Android Dev","Microsoft Azure Cloud.", "Azure Machine Learning","3D Game Development","RIVAL THEORY RAIN AI","UNITY 5 GAME ENGINE","CRY ENGINE 3"],
-        typeSpeed: 0,
-        backDelay: 1500,
-        loop: true
+    <!-- Script to generate the typed text -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function(){
+          Typed.new('.element', {
+            strings: ["~$ Microsoft Development", "~$ Xamarin Development","~$ Microsoft Azure Cloud.", "~$ Azure Machine Learning","~$ 3D Game Development","~$ RIVAL THEORY RAIN AI","~$ UNITY 5 GAME ENGINE","~$ CRY ENGINE 3"],
+            smartBackspace: true,
+            showCursor: false,
+            typeSpeed: 5,
+            backDelay: 1500,
+            loop: true
+          });
       });
+    </script>
+    <script>
+      $(document).ready(function(){
+        var theTech = $('#theTechnology'),
+            homeSection = $('#homeSection'),
+            eventsSection = $('#eventsSection'),
+            teamSection = $('#team'),
+            showcaseSection =$('#showcaseSection'),
+            homeNav = $('.home-nav'),
+            teamButton = $('.team-Button'),
+            showCaseButton =$('.showcase-Button'),
+            theTechNav =$('.the-tech-nav'),
+            eventsNav = $('.events-nav'),
+            cinslider1 = $('#cinSlider1'),
+            cinslider2 = $('#cinslider2');
 
-      Typed.new('.hook', {
-        strings: [  "Can you innovate?", "Do you have the passion!!!"," Do you have the drive to push boundries",
-          "Or you simply just dont know where to start!!!"],
-        typeSpeed: 0,
-        backDelay: 1500,
-        loop: true
-      });
-  });
 
-</script>
+            var controller = new ScrollMagic.Controller();
 
-<!-- Script to handle the animations and scrolling
- of the page based on different conditions-->
-<script>
-$(document).ready(function(){
-  $("#player, .GameDesignSection #player").fadeOut();
+            $('.team').each(function(){
+              var scence = new ScrollMagic.Scene({
+                  triggerElement: this.children[0],// target the first child element of the div, in this case the image
+                  triggerHook: 0.85 // 85% of the view port
+              })
+              .setClassToggle(this, 'fade-in')
+            /*  .addIndicators({
+                name:'fade scene',
+              })*/
+              .addTo(controller);
+            });
 
- // close the video and reset the ui elements to thier original postions
-  $(".MicrosoftSection .close").click(function(){
-    var video = document.getElementById("mp4");
-    video.pause();
-    video.currentTime = 0;
-    $(".nav").fadeIn();
-    $(".MicrosoftSection #play").fadeIn();
-    $(".MicrosoftSection #player").fadeIn();
-    $(".MicrosoftSection .titles").fadeIn();
-    $(".microsoftLogos").fadeIn();
-    $(".MicrosoftSection #player").fadeOut();
-  });
+        theTechNav.click(function(){
+          if(this.classList.contains('active')){
 
-// close the video and reset the ui elements to thier original postions
-  $(".GameDesignSection .close").click(function(){
-    var video = document.getElementById("mp42");
-    video.pause();
-    video.currentTime = 0;
-    $(".nav").fadeIn();
-    $(".GameVideo #play").fadeIn();
-    $(".GameDesignLogos .titles").fadeIn();
-    $(".GameDesignLogos").fadeIn();
-    $(".GameDesignSection #player").fadeOut();
-  });
-
-// play the video and clear ui elements
-  $(".Video #play").click(function(){
-      var video = document.getElementById("mp4");
-      video.play();
-      $("body").scrollTop(660);
-      $(".nav").fadeOut();
-      $(".MicrosoftSection #play").fadeOut();
-      $(".MicrosoftSection .titles").fadeOut();
-      $(".microsoftLogos").fadeOut();
-      $("#player").fadeIn();
-        //console.log(  document.window.scrollTop());
-  });
-
-  // navigate to a section in a page
-  $(".downArrow").click(function(){
-      $(document).scrollTop(650);
-  });
-
-// play the video and clear ui elements
-  $(".GameVideo #play").click(function(){
-      var video2 = document.getElementById("mp42");
-      video2.play();
-      $(".nav").fadeOut();
-      $("body").scrollTop(1325);
-      $(".GameDesignSection #play").fadeOut();
-      $("GameDesignSection .titles").fadeOut();
-      $(".GameDesignLogos").fadeOut();
-      $(".GameDesignSection #player").fadeIn();
-  });
-
-  // MOVE NAVIGATION OUT OF THE WAY WHEN PLAYING VIDEO
-  $(window).scroll(function() {
-    var video = document.getElementById("mp4");
-    var video2 = document.getElementById("mp42");
-
-      if ($(document).scrollTop() < 660) {
-          $(".nav").fadeIn();
-      }
-      if(video.currentTime > 1 ){
-          if($(document).scrollTop() > 650 && $(document).scrollTop() < 1325){
-                $(".nav").fadeOut();
           }else{
-                $(".nav").fadeIn();
-                //change color of the nav based on where we are on the screen
-                if($(document).scrollTop() > 650 ){
-                    document.getElementsByClassName("nav")[0].style.backgroundColor = "black";
-                }else{
-                    document.getElementsByClassName("nav")[0].style.backgroundColor = "transparent";
-                }
-           }
-    }else if(video2.currentTime > 1 ){
-          if($(document).scrollTop() > 1225 && $(document).scrollTop() < 2000){
-                  $(".nav").fadeOut();
-          }else{
-                  $(".nav").fadeIn();
-                  //change color of the nav based on where we are on the screen
-                  if($(document).scrollTop() > 650 ){
-                    document.getElementsByClassName("nav")[0].style.backgroundColor = "black";
-                  }else{
-                    document.getElementsByClassName("nav")[0].style.backgroundColor = "transparent";
-                  }
+            scrollToTheTech();
+            $('.active').removeClass('active');
+            $(this).addClass('active');
           }
-    }else{
-          $(".nav").fadeIn();
-          //change color of the nav based on where we are on the screen
-            if($(document).scrollTop() > 650 ){
-              document.getElementsByClassName("nav")[0].style.backgroundColor = "black";
+        });
+          homeNav.click(function(){
+            if(this.classList.contains('active')){
+
             }else{
-              document.getElementsByClassName("nav")[0].style.backgroundColor = "transparent";
+              scrollHome();
+              $('.active').removeClass('active');
+              $(this).addClass('active');
             }
+          });
+
+          eventsNav.click(function(){
+            if(this.classList.contains('active')){
+
+            }else{
+              scrollToEvents();
+              $('.active').removeClass('active');
+              $(this).addClass('active');
+            }
+          });
+
+          teamButton.click(function(){
+            $('.active').removeClass('active');
+            scrollToTeam();
+          });
+
+          showCaseButton.click(function(){
+            $('.active').removeClass('active');
+            scrollToShowCase();
+          });
+
+        $('.homeDownArrow').click(scrollToTheTech);
+
+        function scrollToTheTech(){
+          TweenLite.set(cinslider1, {display: 'block'});
+          TweenLite.fromTo(cinslider1, 1, {y: '100%'}, {y: '0%', ease:Power3.easeOut});
+          TweenLite.set(cinslider2, {display: 'block', delay:0.4});
+          TweenLite.fromTo(cinslider2, 1.5, {y: '100%'}, {y: '0%', ease:Power3.easeOut, delay:0.4});
+          TweenLite.fromTo(cinSlider1, 1.5, {y: '0%'}, {y: '-100%', ease:Power3.easeOut, delay:0.4});
+          TweenLite.set(theTech, {display: 'block', delay:0.7});
+          TweenLite.fromTo(theTech, 1.7, {y: '100%'}, {y: '0%', ease:Power4.easeOut, delay:0.7});
+          TweenLite.fromTo(cinslider2, 2, {y: '0%'}, {y: '-100%', ease:Power3.easeOut, delay:1.5});
+          TweenLite.set($('.activeSection'), {display: 'none', delay:1.5});
+          TweenLite.set(cinslider1, {display: 'none', delay:2});
+          TweenLite.set(cinslider2, {display: 'none', delay:2, onComplete: toggleActive});
+        };
+
+        function scrollHome(){
+          TweenLite.set(cinslider1, {display: 'block'});
+          TweenLite.fromTo(cinslider1, 1, {y: '0'}, {y: '100%', ease:Power3.easeOut});
+          TweenLite.set(cinslider2, {display: 'block', delay:0.4});
+          TweenLite.fromTo(cinslider2, 1.5, {y: '0%'}, {y: '100%', ease:Power3.easeOut, delay:0.4});
+          TweenLite.fromTo(cinSlider1, 1.5, {y: '-100%'}, {y: '0%', ease:Power3.easeOut, delay:0.4});
+          TweenLite.set(homeSection, {display: 'block', delay:1});
+          TweenLite.fromTo(homeSection, 1.7, {y: '-100%'}, {y: '0%', ease:Power4.easeOut, delay:1});
+          TweenLite.fromTo(cinslider2, 2, {y: '-100%'}, {y: '0%', ease:Power3.easeOut, delay:1.5});
+          TweenLite.set($('.activeSection'), {display: 'none', delay:1.5});
+          TweenLite.set(cinslider1, {display: 'none', delay:2});
+          TweenLite.set(cinslider2, {display: 'none', delay:2, onComplete: toggleActive2});
+        };
+
+        function scrollToEvents(){
+          TweenLite.set(cinslider1, {display: 'block'});
+          TweenLite.fromTo(cinslider1, 1, {y: '100%'}, {y: '0%', ease:Power3.easeOut});
+          TweenLite.set(cinslider2, {display: 'block', delay:0.4});
+          TweenLite.fromTo(cinslider2, 1.5, {y: '100%'}, {y: '0%', ease:Power3.easeOut, delay:0.4});
+          TweenLite.fromTo(cinSlider1, 1.5, {y: '0%'}, {y: '-100%', ease:Power3.easeOut, delay:0.4});
+          TweenLite.set(eventsSection, {display: 'block', delay:0.6});
+          TweenLite.fromTo(eventsSection, 1.7, {y: '100%'}, {y: '0%', ease:Power4.easeOut, delay:0.6});
+          TweenLite.fromTo(cinslider2, 2, {y: '0%'}, {y: '-100%', ease:Power3.easeOut, delay:1.5});
+          TweenLite.set($('.activeSection'), {display: 'none', delay:1.5});
+          TweenLite.set(cinslider1, {display: 'none', delay:2});
+          TweenLite.set(cinslider2, {display: 'none', delay:2, onComplete: toggleActive3});
+        };
+
+        function scrollToTeam(){
+          TweenLite.set(cinslider1, {display: 'block'});
+          TweenLite.fromTo(cinslider1, 1, {y: '100%'}, {y: '0%', ease:Power3.easeOut});
+          TweenLite.set(cinslider2, {display: 'block', delay:0.4});
+          TweenLite.fromTo(cinslider2, 1.5, {y: '100%'}, {y: '0%', ease:Power3.easeOut, delay:0.4});
+          TweenLite.fromTo(cinSlider1, 1.5, {y: '0%'}, {y: '-100%', ease:Power3.easeOut, delay:0.4});
+          TweenLite.set(teamSection, {display: 'block', delay:1});
+          TweenLite.fromTo(teamSection, 1.7, {y: '100%'}, {y: '0%', ease:Power4.easeOut, delay:1});
+          TweenLite.fromTo(cinslider2, 2, {y: '0%'}, {y: '-100%', ease:Power3.easeOut, delay:1.5});
+          TweenLite.set($('.activeSection'), {display: 'none', delay:1.5});
+          TweenLite.set(cinslider1, {display: 'none', delay:2});
+          TweenLite.set(cinslider2, {display: 'none', delay:2, onComplete: toggleActive4});
+        };
+
+        function scrollToShowCase(){
+          TweenLite.set(cinslider1, {display: 'block'});
+          TweenLite.fromTo(cinslider1, 1, {y: '100%'}, {y: '0%', ease:Power3.easeOut});
+          TweenLite.set(cinslider2, {display: 'block', delay:0.4});
+          TweenLite.fromTo(cinslider2, 1.5, {y: '100%'}, {y: '0%', ease:Power3.easeOut, delay:0.4});
+          TweenLite.fromTo(cinSlider1, 1.5, {y: '0%'}, {y: '-100%', ease:Power3.easeOut, delay:0.4});
+          TweenLite.set(showcaseSection, {display: 'block', delay:1});
+          TweenLite.fromTo(showcaseSection, 1.7, {y: '100%'}, {y: '0%', ease:Power4.easeOut, delay:1});
+          TweenLite.fromTo(cinslider2, 2, {y: '0%'}, {y: '-100%', ease:Power3.easeOut, delay:1.5});
+          TweenLite.set($('.activeSection'), {display: 'none', delay:1.5});
+          TweenLite.set(cinslider1, {display: 'none', delay:2});
+          TweenLite.set(cinslider2, {display: 'none', delay:2, onComplete: toggleActive5});
+        };
+        function toggleActive(){
+          $('.activeSection').removeClass('activeSection');
+          theTech.addClass('activeSection');
+
+        };
+        function toggleActive2(){
+          $('.activeSection').removeClass('activeSection');
+          homeSection.addClass('activeSection');
+
+        };
+
+        function toggleActive3(){
+          $('.activeSection').removeClass('activeSection');
+          eventsSection.addClass('activeSection');
+
+        };
+        function toggleActive4(){
+          $('.activeSection').removeClass('activeSection');
+          teamSection.addClass('activeSection');
+
+        };
+        function toggleActive5(){
+          $('.activeSection').removeClass('activeSection');
+          showcaseSection.addClass('activeSection');
+
+        };
+
+      });
+    </script>
+    <style>
+    .navbar-custom {
+        margin: 0;
+        z-index: 1000;
+        border-bottom: 1px solid #353637;
+        width: 100%;
+        list-style-type: none;
+        background-color: rgba(0, 0, 0, 0.5);
     }
+    .nav li a:hover{
+      color: purple;
+      background-color: rgba(0,0,0,0);
+    }
+    .nav li a {
+        display: block;
+        color: white;
+        font-family: 'Roboto', sans-serif;
+        font-size: 16;
+        font-weight: normal;
+        text-align: center;
+      }
+      .navbar-center{
+        float: none;
+        display: table;
+        table-layout: fixed;
+        margin: 0 auto;
+      }
+    </style>
+</head>
 
-  });
-
-});
-</script>
-  </head>
-  <body>
-    <div class="major">
-      <ul class="nav">
-        <li><img class="logo" alt="logo" src="img/UBCICT_bgless.png" width="200" height="65"></li>
-        <ul class="nav" style="left: 300px;">
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="ShowCase.html">ShowCase</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contacts.html">Contact us</a></li>
-        </ul>
-      </ul>
-      <!--MAIN SECTION BEGINS-->
-      <div class="MainSection" >
-        <p>
-           UBCICT WE BREATH INNOVATION
-        </p>
-        <span class="element"></span>
-        <button style="background-color: #2869ed; width: 100px; height: 30px; color: #ffffff; float:right; margin-top:350px; margin-right:630px;  border: none; border-radius:5px;  text-align: center;">
-        <a href="register.html" style="text-decoration:none; color:white;">JOIN US</a>
-        </button>
-        <img class="downArrow" alt="arrow" src="img\down-arrow.png" width="50" height="50" />
-      </div>
-      <!-- END OF MAIN SECTION -->
-
-      <!-- Microsoft section -->
-      <div class="MicrosoftSection">
-      <div id="shadow">
-          <div class="Video" >
-              <img id="play" alt="playbutton" class="animated zoomin" src="img/play_arrow.png" width="140" height="100" >
-              <h1 class="titles"> Microsoft Development </h1>
-          </div>
-          <div class="Video" id="player">
-            <img src="img/x-mark-512.png"  alt="closebutton" class="close">
-              <video id="mp4">
-                <source src="img/Feedmusic.mp4" type="video/mp4">
-              </video>
-          </div>
-
-          <ul class="microsoftLogos">
-            <li><img src="img/aspNet.png" alt="asp.net" width="250" height="120"/></li>
-            <li><img src="img/AZURE2.png" alt="AZURE2" width="250" height="120"/></li>
-            <li><img src="img/Xamarin.png" alt="Xamarin" width="250" height="120"/></li>
+<body>
+    <!--li><img class="logo" alt="logo" src="img/UBCICT_bgless.png" width="200" height="65"></li -->
+    <nav class="navbar navbar-custom navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="glyphicon-menu-hamburger"></span>
+          </button>
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse">
+          <ul class="nav navbar-nav navbar-center">
+            <li><a class="home-nav active" href="#">HOME</a></li>
+            <li><a class="the-tech-nav" href="#">THE TECHNOLOGY</a></li>
+            <li><a class="colaborators-nav" href="#">COLABORATORS</a></li>
+            <li><a class="events-nav" href="#">EVENTS</a></li>
           </ul>
-      </div>
-      </div>
-        <!--End of Microsoft section -->
-
-        <!--GameDesignSection begins -->
-      <div class="GameDesignSection">
-        <div id="shadow">
-          <div class="GameVideo">
-            <img id="play" alt="playarrow" src="img/play_arrow.png" width="140" height="100" >
-            <h1> UNITY 5  3D GAME DEVELOPMENT </h1>
-          </div>
-          <div class="Video" id="player">
-              <img src="img/x-mark-512.png" alt="closebutton" class="close">
-              <video id="mp42">
-                <source src="img/Feedmusic.mp4" type="video/mp4">
-              </video>
-          </div>
-          <div class="GameDesignLogos">
-            <ul>
-              <li><img src="img/UNITYT.png" alt="UNITY" width="250" height="120"/></li>
-              <li><img src="img/RAINAI.png" alt="RAINAI" width="250" height="200"/></li>
-              <li><img src="img/CRYENGINE.png" alt="CryEngine" width="250" height="120"/></li>
-            </ul>
-          </div>
         </div>
       </div>
-        <!--End of GameDesignSection -->
+    </nav>
 
-      <!--div class="WebDesignSection">
-        <h1 class="titles"> WEB DEVELOPMENT </h1>
-        <div>
-          <p>
-            Client side: XHTML CSS JAVA-SCRIPT<br>
-            SERVER SIDE: PHP PYTHON MySQL
-          </p>
+    <div id="mainContainer">
+      <div class="wrapper">
+        <!-- homeSection -->
+        <div id="homeSection" class="container-fluid sections activeSection">
+          <div class="panel" style="padding:0px; background-color: rgba(0,0,0,0.1); height:100%; color:white;">
+              <div class="panel-header" style="height:20%;"></div>
+              <div class="panel-body" style="height:50%">
+                <h1 style="text-align:center; height:30%;font-size:46;">
+                   UBCICT WE BREATH INNOVATION
+                </h1>
+                <div class="col-md-6  col-md-offset-4">
+                    <p class="element" style="font-size:36;"></p>
+                </div>
+              </div>
+              <div class="panel-body" style="height:25%" >
+                <button class="btn btn-primary center-block" style="margin-top:40">
+                  <a href="register.html" style="text-decoration:none; color:white;">JOIN US</a>
+                </button>
+                <img class="img-responsive center-block homeDownArrow" alt="arrow" src="img\down-arrow.png" width="40" height="40" style="margin-top:40px;"/>
+              </div>
+          </div>
+        </div>
+        <!-- THE TECH -->
+        <div id="theTechnology"  class="container sections">
+          <div class="container" style="margin-top:50px;">
+            <div class="col-md-6 text-left ">
+              <h1 class="info">Who are we?</h1>
+              <p class="info">
+                We are a group of computing students at the university of Botswana promoting the growth of computer science within the country culturing innovation and creativity within the field of programming.
+                We obtain, apply, distribute computing knowledge and skills
+              </p>
+              <button class="team-Button btn" style="background-color: #222; border: solid 1px white; margin:6px;padding:5px;border-radius:0px;">
+                <a href="#" style="text-decoration:none; color:white; font-family: sans-serif;">Meet The Team</a>
+              </button>
+              <!--button  class="showcase-Button btn" style="background-color: #222;border: solid 1px white;padding:5px 15px; border-radius:0px;" >
+                <a href="#" style="text-decoration:none; color:white; font-family: sans-serif;">Show Case</a>
+              </button-->
+            </div>
+            <div class="col-md-5 col-md-offset-1" style="margin-top:50px;">
+              <img class="img-responsive top" src="img/UBCICT_bgless.png" width="500px" height="350px" />
+            </div>
+          </div>
+
+          <div class="container-fluid cards-wrapper">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="panel panel-default" style="border-radius:10px;">
+                  <div class="panel-body card-content" data-toggle="modal" data-target="#modal1" style="padding:0px; text-align:center;">
+                    <div class="card-content-header" style="background-image:url(img/webDevelopment.jpg)">
+                    </div>
+                    <div class="container-fluid card-body" >
+                      <div class="container-fluid card-title">
+                        <p>WEBSITE DEVELOPMENT</p>
+                      </div>
+                      <div class="container-fluid card-content-body">
+                        <h3>Learn Webdevelopment from the pros</h3>
+                      </div>
+                    </div>
+                    <div class="container-fluid card-content-footer">
+                      <a> GET STARTED...</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="panel panel-default" style="border-radius:10px;">
+                  <div class="panel-body card-content" data-toggle="modal" data-target="#modal1" style="padding:0px; text-align:center;">
+                    <div class="card-content-header" style="background-image:url(img/java4.jpg)">
+                    </div>
+                    <div class="container-fluid card-body">
+                      <div class="container-fluid card-title">
+                        <p>JAVA</p>
+                      </div>
+                      <div class="container-fluid card-content-body">
+                        <h3>Kick start your java programming skills</h3>
+                      </div>
+                    </div>
+                    <div class="container-fluid card-content-footer">
+                      <a> GET STARTED...</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="panel panel-default" style="border-radius:10px;">
+                  <div class="panel-body card-content" data-toggle="modal" data-target="#modal1" style="padding:0px; text-align:center;">
+                    <div class="card-content-header" style="background-image:url(img/c-sharp2.jpg); background-size:cover; background-repeat:no-repeat">
+                    </div>
+                    <div class="container-fluid card-body">
+                      <div class="container-fluid card-title">
+                        <p>C#</p>
+                      </div>
+                      <div class="container-fluid card-content-body">
+                        <h3>Whats new in C#</h3>
+                      </div>
+                    </div>
+                    <div class="container-fluid card-content-footer">
+                      <a> GET STARTED...</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="panel panel-default" style="border-radius:10px;">
+                  <div class="panel-body card-content" data-toggle="modal" data-target="#modal1" style="padding:0px; text-align:center;">
+                    <div class="card-content-header" style="background-image:url(img/Cloud-Azure.jpg)">
+                    </div>
+                    <div class="container-fluid card-body">
+                      <div class="container-fluid card-title">
+                        <p>AZURE CLOUD Development</p>
+                      </div>
+                      <div class="container-fluid card-content-body">
+                        <h3>AZURE CLOUD Development</h3>
+                      </div>
+                    </div>
+                    <div class="container-fluid card-content-footer">
+                      <a> GET STARTED...</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="panel panel-default" style="border-radius:10px;">
+                  <div class="panel-body card-content" data-toggle="modal" data-target="#modal1" style="padding:0px; text-align:center;">
+                    <div class="card-content-header" style="background-image:url(img/Xamarin1.jpg)">
+                    </div>
+                    <div class="container-fluid card-body">
+                      <div class="container-fluid card-title">
+                        <p>XAMARIN</p>
+                      </div>
+                      <div class="container-fluid card-content-body">
+                        <h3>Cross platform applications in C#</h3>
+                      </div>
+                    </div>
+                    <div class="container-fluid card-content-footer">
+                      <a> GET STARTED...</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="panel panel-default" style="border-radius:10px;">
+                  <div class="panel-body card-content" data-toggle="modal" data-target="#modal1" style="padding:0px; text-align:center;">
+                    <div class="card-content-header" style="background-image:url(img/windows-app-development.jpg); background-size:cover;">
+                    </div>
+                    <div class="container-fluid card-body">
+                      <div class="container-fluid card-title">
+                        <p>WINDOWS DEVELOPMENT</p>
+                      </div>
+                      <div class="container-fluid card-content-body" style="padding-top:0px;">
+                        <h3>Develop applications for the windows platform (Desktop & Mobile)</h3>
+                      </div>
+                    </div>
+                    <div class="container-fluid card-content-footer">
+                      <a> GET STARTED...</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="panel panel-default" style="border-radius:10px;">
+                  <div class="panel-body card-content"  data-toggle="modal" data-target="#modal1"style="padding:0px; text-align:center;">
+                    <div class="card-content-header" style="background-image:url(img/unity5.jpg)">
+                    </div>
+                    <div class="container-fluid card-body">
+                      <div class="container-fluid card-title">
+                        <p>UNITY 5 3D GAME DEVELOPMENT</p>
+                      </div>
+                      <div class="container-fluid card-content-body">
+                        <h3>Develop amazing 3D games for all platforms</h3>
+                      </div>
+                    </div>
+                    <div class="container-fluid card-content-footer">
+                      <a> GET STARTED...</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="panel panel-default" style="border-radius:10px;">
+                  <div class="panel-body card-content" data-toggle="modal" data-target="#modal1" style="padding:0px; text-align:center;">
+                    <div class="card-content-header" style="background-image:url(img/unreal.jpg)">
+                    </div>
+                    <div class="container-fluid card-body">
+                      <div class="container-fluid card-title">
+                        <p>UNREAL ENGINE GAME DEVELOPMENT</p>
+                      </div>
+                      <div class="container-fluid card-content-body" style="margin:0px;">
+                        <h3>Develop amazing 3D games for all platforms</h3>
+                      </div>
+                    </div>
+                    <div class="container-fluid card-content-footer">
+                      <a> GET STARTED...</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <!-- COLABORATORS -->
+          <div id="colaborators" class="container-fluid">
+            <div class="row">
+              <div class="col-md-3">
+                <img class="img-responsive top" src="img/UBCICT_bgless2.png" width="250px" height="250px" />
+              </div>
+              <div class="col-md-2">
+                <img class="img-responsive top" src="img/ublogo2.png" width="250px" height="250px" />
+              </div>
+            </div>
+          </div>
+          <footer class="container" style="background-color:#222;; color:white; width: 100%;
+          height: 60px;">
+        </footer>
+        </div>
+        <!-- events-->
+        <div id="eventsSection" class="container-fluid sections">
+          <!--div class="mainEvent container" style="background-image:url(img/banner.jpg); background-size:cover;">
+          </div-->
+          <div class="calander container">
+            <div data-tockify-component="calendar" data-tockify-calendar="ubcict"></div>
+            <script data-cfasync="false" data-tockify-script="embed" src="https://public.tockify.com/browser/embed.js"></script>
+          </div>
         </div>
 
-      </div-->
+        <!--Team section -->
+        <div id="team" class="container-fluid sections">
+          <div class="teamWrapper">
+            <div class="row text-center team center-block">
+                <div class=" col-md-6 col-md-offset-3 "  id="president">
+                  <img class="img-responsive img-circle center-block" src="img/Elias.jpg"/>
+                  <h3>PRESIDENT <br/> Elias M.Bayona</h3>
+                  <p> University of Botswana BSc Computer Science student.</p>
+                    <h4 style="margin:0px;"> Primary focus areas:</h4>
+                  <p>
+                    Microsoft development, Wearables, Web applications and 3D Game Development.
+                  </p>
+                </div>
+            </div>
+            <div class="row text-center team">
+                <div class="col-md-6 col-md-offset-3" id="treasurer">
+                  <img class="img-responsive img-circle center-block" src="img/dan.jpg"/>
+                  <h3>TREASURER <br/> Daniel Dube</h3>
+                  <!--p> University of Botswana BSc Computer Science student.<br/> Primary focus areas:<br/>
+                    Xamarin application development, Web applications, 3D design and 3D Game Development.
+                  </p-->
+                </div>
+            </div>
+            <div class="row text-center team">
+                <div class="col-md-6 col-md-offset-3" id="pro">
+                  <img class="img-responsive img-circle center-block" src="img/OB2.jpg"/>
+                  <h3>PUBLIC RELATIONS OFFICER <br/> Oboikanyo Motladiile</h3>
+                  <!--p> University of Botswana Computer science society for Innovative and  Communications Technology is a club established
+                      in 2010.The main focus of the club is to obtain,apply and distribute computing knowledge and skills within the
+                      University of Botswna student community.
+                  </p-->
+                </div>
+            </div>
+            <div class="row text-center team">
+                <div class="col-md-6 col-md-offset-3" id="secritary">
+                  <img class="img-responsive img-circle center-block" src="img/david.jpg"/>
+                  <h3>SECRETARY <br/> Andreu D.Modise</h3>
+                  <p> University of Botswana BSc Computer Science student.</p>
+                    <h4 style="margin:0px;"> Primary focus areas:</h4>
+                  <p>Xamarin application development, Web applications, 3D design and 3D Game Development.</p>
+                </div>
+            </div>
+          </div>
+        </div>
 
-        <!-- RegisterSection begins -->
-      <div class="RegisterSection">
-        <h1 style="position:relative; top:100; text-align:center;">UNIVERSITY OF BOTSWANA COMPUTER SCIENCE <br>
-          SOCITY OF INFORMATION AND COMMUNICATION TECHNOLOGY
-        </h1>
-      <div class="hook" style="position:relative; top:120px; color:black; float:left; left:400px; font-size:38;"></div>
+        <!-- showcase section -->
+        <div id="showcaseSection" class="container-fluid sections">
+        </div>
+        <div id="cinSlider1" class="container-fluid sections">
+        </div>
+        <div id="cinslider2" class="container-fluid sections">
+        </div>
 
-        <button style="position:relative; border:none; border-radius:2px; background-color:#2869ed; width:100px; height:35px;float:right; right:630px; top: 250px;">
-        <a href="register.html" style="color:white; text-decoration:none;">  REGISTER </a>
-         </button>
-        <img style="position:relative; float:right; top:400px; right:900px;" alt="logo" src="img/UBCICT_bgless.png" width="200" height="150">
-        <img style="position:relative; float:right; top:390px;right:0px;" alt="UBLogo" src="img/ublogo1.png" width="200" height="150">
       </div>
     </div>
-      <!--End of RegisterSection -->
+    <div class="modal fade" id="modal1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" data-dismiss="modal">&times;</button>
+            <h4>header</h4>
+          </div>
+          <div class="modal-body">
+            <p>content</p>
+          </div>
+          <div class="modal-footer">
+            <p>footer</p>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
 
-  </body>
-  <footer class="footer" >
-             <p>Copyright &copy; Group 2 LIS 104 Website 2017 </p>
-  </footer>
 </html>
