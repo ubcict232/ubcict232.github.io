@@ -6,6 +6,11 @@ div{
   box-sizing: border-box;
   overflow: hidden;
 }
+
+nav i {
+    color: #fff;
+}
+
 #mainContainer{
   overflow: hidden;
   width: 100%;
@@ -36,11 +41,14 @@ div{
   position: relative;
   background-image: url(../img/background.jpg);
   background-size: cover;
+    text-align: center;
+    padding-top: 150px;
   overflow-x: hidden;
   overflow-y: auto;
 }
 #homeSection .title{
   color:white;
+    padding: 50px 0;
   /*text-align: center;
   position:relative;
   font-family: 'Open Sans', sans-serif;
@@ -58,9 +66,25 @@ div{
 .element{
   color: white;
   font-size: 42;
+    padding: 50px 0;
 
 
 }
+
+@media (max-width:668px) {
+    #homeSection {
+        padding-top: 70px;
+    }
+    
+    #homeSection .title{
+        padding: 10px;   
+    }
+    
+    .element {
+        padding: 10px;
+    }
+}
+
 .typed-cursor{
     opacity: 1;
     -webkit-animation: blink 0.7s infinite;
@@ -476,4 +500,9 @@ div{
 }
 .ad-container{
   position: absolute; width:22.5%; height: 300px; background-color: #222; margin-left:1045px; margin-top:60px;
+}
+
+
+.embed-responsive {
+    position:inherit;
 }
