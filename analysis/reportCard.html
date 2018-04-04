@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Analysis</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect. -->
+  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+ <style type="text/css">
+      td>input{
+        background-color: gray;
+        border:none;
+      }
+      .subject{
+      text-align: left;
+
+      }
+      tr{
+      line-height: 1;
+      max-height: 1.5em;
+      }
+      td{
+        padding: 8px;
+      }
+      td > input{
+        border: none; 
+        width: 50px; 
+        text-align: center;
+        background-color: transparent;
+      }
+    
+      table{
+        border:solid 1px gray;
+        /*margin: 50px;*/
+        font-weight: 300;
+        font-size: 11pt
+        color:black;
+      }
+      th, td{
+        border: solid 2px gray;
+      }
+      table>tbody>tr>td{
+        background-color: white;
+        vertical-align: middle;
+      }
+    </style>
+</head>
+<body onload="window.print();">
+<div class="wrapper container-fluid">
+  <!-- Main content -->
+   <section class="invoice">
+            <div class="row" style="margin-bottom: 5px;">
+              <div class="col-md-2 col-xs-2 col-md-2">
+                <!-- school logo -->
+                <img class="responsive" src="img/ublogo.png" style="width: 100px; left-left: 25px;">
+              </div>
+              <div class="col-sm-8 col-xs-8 invoice-col col-md-8" style="text-align: center">
+                <!-- school address -->
+                
+                  <h5>Nare Sereto Community Junior Secondary School</h5>
+                  <h5>Private Bag: 002, Tel:276 976, Fax: 332 876</h5>
+                  <h5>Gabane, Botswana</h5>
+                
+              </div>
+              <div class="col-sm-2 col-xs-2">
+                <img class="responsive" src="img/gov.png" style="width: 100px;">
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3 col-xs-3 col-md-2">
+                <h5><strong>Surname:</strong>Kgosi</h5>
+              </div>
+              <div class="col-sm-3 col-xs-3">
+                <h5><strong>Name:</strong>Kamogelo</h5>
+              </div>
+              <div class="col-sm-3 col-xs-3">
+                <h5><strong>Gender:</strong>Male</h5>  
+              </div>
+              <div class="col-sm-3 col-xs-3">
+                <h5><strong>Class:</strong>2B</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-3 col-xs-3">
+                  <h5><strong>Number in class:</strong>01</h5>
+              </div>
+              <div class="col-sm-3 col-xs-3">
+                  <h5><strong>Term Ending:</strong> 12/12/2018</h5>
+              </div>
+              <div class="col-sm-4 col-xs-4">
+                  <h5><strong>School Reopens:</strong> 07/01/2019</h5>
+              </div>
+              <div class="col-sm-2 col-sm-pull-1 col-xs-2 col-xs-pull-2">
+                  <h5><strong>PSLE GRADE:</strong>A</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12 col-xs-12">
+                <table class="table table-condensed text-center" style="color: black;margin-right: auto; margin-left: auto;">
+                    <thead>
+                      <tr style="line-height: .8em; background-color: rgba(128, 128, 128, 0.67)">
+                        <th style="width: 200px vertical-align: middle;">Subject</th>
+                        <th style="width: 50px vertical-align: middle; padding:12px 5px;">Exam Mark %</th>
+                        <th style="width: 50px vertical-align: middle;">Grade</th>
+                        <th style="width: 50px vertical-align: middle;">Score</th>     
+                        <th style="width:200px vertical-align: middle;">Teacher's Comments</th>
+                        <th style="width: 200px vertical-align: middle;">Teacher's Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="text-align: left;">Setswana</td>
+                        <td id="setswanaExamMark" class="Subject"> 76 </td>
+                        <td id="setswanaGrade">B</td>
+                        <td id="setswanaScore"></td>
+                        <td id="setswanaComment"></td>
+                        <td id="setswanaTeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">English</td>
+                        <td id="EnglishExamMark" class="Subject"> 76 </td>
+                        <td id="EnglishGrade">B</td>
+                        <td id="EnglishScore"></td>
+                        <td id="EnglishComment"></td>
+                        <td id="EnglishTeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Mathematics</td>
+                        <td id="MathematicsExamMark" class="Subject"> 76 </td>
+                        <td id="MathematicsGrade">B</td>
+                        <td id="MathematicsScore"></td>
+                        <td id="MathematicsComment"></td>
+                        <td id="MathematicsTeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Agriculture</td>
+                        <td id="AgricultureExamMark" class="Subject"> 76 </td>
+                        <td id="AgricultureGrade">B</td>
+                        <td id="AgricultureScore"></td>
+                        <td id="AgricultureComment"></td>
+                        <td id="AgricultureTeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Integrated Science</td>
+                        <td id="IntegratedScienceExamMark" class="Subject"> 76 </td>
+                        <td id="IntegratedScienceGrade">B</td>
+                        <td id="IntegratedScienceScore"></td>
+                        <td id="IntegratedScienceComment"></td>
+                        <td id="IntegratedScienceTeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Social Studies</td>
+                        <td id="SocialStudiesExamMark" class="Subject"> 76 </td>
+                        <td id="SocialStudiesGrade">B</td>
+                        <td id="SocialStudiesScore"></td>
+                        <td id="SocialStudiesComment"></td>
+                        <td id="SocialStudiesTeacher"> teacher</td>
+                      </tr>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Moral Education</td>
+                        <td id="MoralEducationExamMark" class="Subject"> 76 </td>
+                        <td id="MoralEducationGrade">B</td>
+                        <td id="MoralEducationScore"></td>
+                        <td id="MoralEducationComment"></td>
+                        <td id="MoralEducationTeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Design and Technology</td>
+                        <td id="D&TExamMark" class="Subject"> 76 </td>
+                        <td id="D&TGrade">B</td>
+                        <td id="D&TScore"></td>
+                        <td id="D&TComment"></td>
+                        <td id="D&TTeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Religious Education</td>
+                        <td id="REExamMark" class="Subject"> 76 </td>
+                        <td id="REGrade">B</td>
+                        <td id="REScore"></td>
+                        <td id="REComment"></td>
+                        <td id="RETeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Art</td>
+                        <td id="ArtExamMark" class="Subject"> 76 </td>
+                        <td id="ArtGrade">B</td>
+                        <td id="ArtScore"></td>
+                        <td id="ArtComment"></td>
+                        <td id="ArtTeacher">teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Commerce and office procedures</td>
+                        <td id="CommerceAndOfficeProceduresExamMark" class="Subject"> 76 </td>
+                        <td id="CommerceAndOfficeProceduresGrade">B</td>
+                        <td id="Commerce and office proceduresScore"></td>
+                        <td id="CommerceAndOfficeProceduresComment"></td>
+                        <td id="CommerceAandOfficeProceduresTeacher">teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">accounting</td>
+                        <td id="accountingExamMark" class="Subject"> 76 </td>
+                        <td id="accountingGrade">B</td>
+                        <td id="accountingScore"></td>
+                        <td id="accountingComment"></td>
+                        <td id="accountingTeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Home Economics</td>
+                        <td id="HEExamMark" class="Subject"> 76 </td>
+                        <td id="HEGrade">B</td>
+                        <td id="HEScore"></td>
+                        <td id="HEComment"></td>
+                        <td id="HETeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Physical Education</td>
+                        <td id="PEExamMark" class="Subject"> 76 </td>
+                        <td id="PEGrade">B</td>
+                        <td id="PEScore"></td>
+                        <td id="PEComment"></td>
+                        <td id="PETeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Music Education</td>
+                        <td id="MEExamMark" class="Subject"> 76 </td>
+                        <td id="MEGrade">B</td>
+                        <td id="MEScore"></td>
+                        <td id="MEComment"></td>
+                        <td id="METeacher"> teacher</td>
+                      </tr>
+                      <tr>
+                        <td>Total Marks</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Aggregate: 50</td>
+                        <td>Grade: B</td>
+                      </tr>
+                    </tbody>
+                  </table>  
+              </div>
+            </div>
+            <div class="row" style="padding-top: 10px; padding-left: 25px">
+              <div class="col-sm-1 col-xs-1" style="padding-left: 0px; padding-right: 0px; margin-left: 10px">
+                <p>Merit=63</p>
+              </div>
+              <div class="col-sm-1 col-xs-1" style="padding-left: 0px; padding-right: 0px; margin-left: 10px">
+                <p>A=55-62</p>
+              </div>
+              <div class="col-sm-1 col-xs-1" style="padding-left: 0px; padding-right: 0px; margin-left: 10px">
+                <p>B=41-54</p>
+              </div>
+              <div class="col-sm-1 col-xs-1" style="padding-left: 0px; padding-right: 0px; margin-left: 10px">
+                <p>C=27-40</p>
+              </div>
+              <div class="col-sm-1 col-xs-1" style="padding-left: 0px; padding-right: 0px; margin-left: 10px">
+                <p>D=13-26</p>
+              </div>
+              <div class="col-sm-1 col-xs-1" style="padding-left: 0px; padding-right: 0px; margin-left: 10px">
+                <p>E=7-12</p>
+              </div>
+              <div class="col-sm-1 col-xs-1" style="padding-left: 0px; padding-right: 0px; margin-left: 10px">
+                <p>U=0-6</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-7 col-xs-7">
+                <p>
+                  Co-curicular/Sport Activities: ______________________________
+                </p>
+              </div>  
+              <div class="col-sm-4 col-xs-4">
+                <p>
+                  Attendance(School):______________________
+                </p>
+              </div>
+               <div class="col-sm-12 col-xs-12">
+                <p>
+                Class teacher Remarks:
+                </p>
+              </div>  
+               <div class="col-sm-4 col-xs-4">
+                <p>
+                  Teacher's Name: Teachers name
+                </p>
+              </div> 
+               <div class="col-sm-4 col-xs-4">
+                <p>
+                  Signature: _____________________
+                </p>
+              </div> 
+               <div class="col-sm-4 col-xs-4">
+                <p>
+                  Date: 12/12/2018
+                </p>
+              </div>  
+              <div class="col-sm-12 col-xs-12">
+                <p>
+                  Schoolhead's Remarks:
+                </p>
+              </div>  
+               <div class="col-sm-4 col-xs-4">
+                <p>
+                  Schoolhead's Name: Name
+                </p>
+              </div> 
+               <div class="col-sm-4 col-xs-4">
+                <p>
+                  Signature: _____________________
+                </p>
+              </div> 
+               <div class="col-sm-4 col-xs-4">
+                <p>
+                  Date: 12/12/2018
+                </p>
+              </div>  
+            </div>
+  </section>
+  <!-- /.content -->
+</div>
+<!-- ./wrapper -->
+</body>
+</html>

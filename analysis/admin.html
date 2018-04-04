@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Analysis</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins.-->
+  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="bower_components/select2/dist/css/select2.min.css">
+  <!-- DataTables -->
+  <link rel="stylesheet" href="bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css">
+   <!-- bootstrap datepicker -->
+  <link rel="stylesheet" href="bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+    <style type="text/css">
+    input[type="search"]{
+      background-color: #374850;
+      border-top-left-radius: 2px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 2px;
+    border: 1px solid transparent;
+    margin-top: 5px;
+    margin-right: 10px;
+    }
+    input[type="search"]:focus{
+      background-color: white;
+    }
+      .input{
+        border-color: transparent; 
+        background-color: rgb(26, 34, 38); 
+        color: white;
+      }
+
+     
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini fixed scrollbar" id="style-1"  style="background-image: url('img/bg3.png'); background-size: cover;">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="#" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>A</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Analysis</b></span>
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="login.html">
+              <!-- The user image in the navbar-->
+              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+              <span class="hidden-xs">logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Teacher's name</p>
+          <!-- Status -->
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+
+      <!-- search form (Optional) -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="background-color: transparent;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li>Home</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+         <div class="col-md-8">
+          <!--===================
+                Users table
+              ===================-->
+          <div class="box">
+            <div class="box-header with-border" style="background-color: rgba(255, 255, 255, 0.2); color: white; border:none">
+              <h3 class="box-title">Users</h3>
+              <a target="_blank" class="btn btn-default" style="background-color: #1e282c; border:0px; color: white; float:right;margin-right:50px;" data-toggle="modal" data-target="#modal-addUser"><i class="fa  fa-plus"></i> </a>
+
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+            	<div class="box-content scrollbar">
+            		<table id="users" class="table" style="margin:0px;">
+            		 	<thead>
+                    <tr>
+                      <th>User Id</th>
+                      <th>Username</th>
+                      <th>Name</th>
+                      <th>Surname</th>
+                      <th>Class</th>
+                      <th>Type</th>
+                      <th></th>
+                      <th></th>
+                    </tr>  
+                  </thead>
+                  <tbody >
+            		 		<tr>
+            		 			<td>T001</td>
+            		 			<td>Kenntse0365</td>
+            		 			<td>Kgosi</td>
+            		 			<td>Kenntse</td>
+                      <td>3B</td>
+                      <td>Normal</td>
+                      <td class="userEdit" data-target="#modal-editUser"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+            		 		</tr>
+            		 		<tr>
+                      <td>T002</td>
+                      <td>Johndoe</td>
+                      <td>John</td>
+                      <td>Doe</td>
+                      <td>3C</td>
+                      <td>Admin</td>
+                      <td class="userEdit" data-target="#modal-editUser"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>T003</td>
+                      <td>Jaindoe</td>
+                      <td>Jain</td>
+                      <td>Doe</td>
+                      <td>1A</td>
+                      <td>Normal</td>
+                      <td class="userEdit" data-target="#modal-editUser"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>T004</td>
+                      <td>Kgosimoeledi</td>
+                      <td>Kgosi</td>
+                      <td>Moeledi</td>
+                      <td>2A</td>
+                      <td>Normal</td>
+                      <td class="userEdit" data-target="#modal-editUser"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>T005</td>
+                      <td>KgosiKhumo</td>
+                      <td>Kgosi</td>
+                      <td>Khumo</td>
+                      <td>3D</td>
+                      <td>Normal</td>
+                      <td class="userEdit" data-target="#modal-editUser"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+            		 	</tbody>
+            		</table>
+            	</div>
+ 				      <!-- /.box-conent -->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          <!--===================
+                Students table
+              ===================-->
+          <div class="box">
+            <div class="box-header with-border" style="background-color: rgba(255, 255, 255, 0.2); color: white; border:none">
+              <h3 class="box-title">Students</h3>
+              <a href="#" target="_blank" class="btn btn-default" data-toggle="modal" data-target="#modal-addStudent" style="background-color: #1e282c; border:0px; color: white; float:right; margin-right:50px;"><i class="fa  fa-plus"></i> </a>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="box-content scrollbar">
+            		<table id="studentsAd" class="table">
+                  <thead>
+                      <th>ID</th>
+                      <th>Class</th>
+                      <th>Name</th>
+                      <th>Gender</th>
+                      <th>Class Teacher</th>
+                      <th></th>
+                      <th></th>
+                  </thead>
+            			<tbody>
+            				<tr>
+                      <td>S001</td>
+            					<td>3B</td>
+            					<td>Elias Bayona</td>
+                      <td>Male</td>
+            					<td>Class Teacher</td>
+            					<td class="studentEdit" data-target="#modal-editStudent"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+            				</tr>
+            				<tr>
+                      <td>S002</td>
+                      <td>3C</td>
+                      <td>David Modise</td>
+                      <td>Male</td>
+                      <td>Class Teacher</td>
+                      <td class="studentEdit" data-target="#modal-editStudent"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+            				<tr>
+                      <td>S003</td>
+                      <td>3A</td>
+                      <td>Alex Boldwin</td>
+                      <td>Male</td>
+                      <td>Class Teacher</td>
+                      <td class="studentEdit" data-target="#modal-editStudent"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>S004</td>
+                      <td>3A</td>
+                      <td>Alexa Ramerez</td>
+                      <td>Male</td>
+                      <td>Class Teacher</td>
+                      <td class="studentEdit" data-target="#modal-editStudent"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>S005</td>
+                      <td>3C</td>
+                      <td>Sanchez Molodi</td>
+                      <td>Male</td>
+                      <td>Class Teacher</td>
+                      <td class="studentEdit" data-target="#modal-editStudent"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+            			</tbody>
+            		</table>
+            	</div>
+ 				      <!-- /.box-conent -->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+           <!--===================
+                Classes table
+              ===================-->
+          <div class="box">
+            <div class="box-header with-border" style="background-color: rgba(255, 255, 255, 0.2); color: white; border:none">
+              <h3 class="box-title">Classes</h3>
+              <a href="#" target="_blank" class="btn btn-default" data-toggle="modal" data-target="#modal-createClass" style="background-color: #1e282c; border:0px; color: white; float:right;margin-right:50px;"><i class="fa  fa-plus"></i> </a>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="box-content scrollbar">
+                <table id="classesAd" class="table" style="margin:0px;">
+                  <thead>
+                    <tr>
+                      <th>Class Id</th>
+                      <th>Class name</th>
+                      <th>Number of students</th>
+                      <th>Class Teacher</th>
+                      <th></th>
+                      <th></th>
+                    </tr>  
+                  </thead>
+                  <tbody >
+                    <tr>
+                      <td>1A2018</td>
+                      <td>1A</td>
+                      <td>40</td>
+                      <td>Jain Doe</td>
+                      <td class="modifyClass" data-target="#modal-modifyClass"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>1C2016</td>
+                      <td>3C</td>
+                      <td>40</td>
+                      <td>John Doe</td>
+                      <td class="modifyClass" data-target="#modal-modifyClass"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>1B2016</td>
+                      <td>3B</td>
+                      <td>40</td>
+                      <td>Kgosi Kennets</td>
+                      <td class="modifyClass" data-target="#modal-modifyClass"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>1D2016</td>
+                      <td>3D</td>
+                      <td>40</td>
+                      <td>Kgosi Kgolo</td>
+                      <td class="modifyClass" data-target="#modal-modifyClass"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>1D2017</td>
+                      <td>2D</td>
+                      <td>40</td>
+                      <td>Moeledi Diane</td>
+                      <td class="modifyClass" data-target="#modal-modifyClass"><i class="fa fa-pencil"></i></td>
+                      <td class="delete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.box-conent -->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!--/.box-->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-4">
+          <!--================================
+                    EXAMS TABLE
+              ================================-->
+          <div class="box">
+            <div class="box-header with-border" style="background-color: rgba(255, 255, 255, 0.2); color: white; border:none">
+              <h3 class="box-title">Assements</h3>
+              <a href="#" target="_blank" class="btn btn-default" data-toggle="modal" data-target="#modal-createAssement" style="background-color: #1e282c; border:0px; color: white; float:right;margin-right:50px;"><i class="fa  fa-plus"></i> </a>
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="box-content scrollbar" style="height: 75vh;">
+                <table id="exams" class="table" style="margin:0px;">
+                  <thead>
+                    <tr>
+                      <th>Exam Id</th>
+                      <th>Exam name</th>
+                      <th></th>
+                      <th></th>
+                    </tr>  
+                  </thead>
+                  <tbody >
+                    <tr>
+                      <td>MAT201703</td>
+                      <td>Mathematics</td>
+                      <td class="assesmentEdit" data-target="#modal-modifyAssement"><i class="fa fa-pencil"></i></td>
+                      <td class="assesmentDelete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Science201703</td>
+                      <td>Integrated Scince</td>
+                      <td class="assesmentEdit" data-target="#modal-modifyAssement"><i class="fa fa-pencil"></i></td>
+                      <td class="assesmentDelete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>Cs201703</td>
+                      <td>ComputerStudies</td>
+                      <td class="assesmentEdit" data-target="#modal-modifyAssement"><i class="fa fa-pencil"></i></td>
+                      <td class="assesmentDelete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>PE201703</td>
+                      <td>Physical Education</td>
+                      <td class="assesmentEdit" data-target="#modal-modifyAssement"><i class="fa fa-pencil"></i></td>
+                      <td class="assesmentDelete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>ACC201703</td>
+                      <td>Accounting</td>
+                      <td class="assesmentEdit" data-target="#modal-modifyAssement"><i class="fa fa-pencil"></i></td>
+                      <td class="assesmentDelete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>ENG201703</td>
+                      <td>English</td>
+                      <td class="assesmentEdit" data-target="#modal-modifyAssement"><i class="fa fa-pencil"></i></td>
+                      <td class="assesmentDelete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>SET201703</td>
+                      <td>Setswana</td>
+                      <td class="assesmentEdit" data-target="#modal-modifyAssement"><i class="fa fa-pencil"></i></td>
+                      <td class="assesmentDelete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                    <tr>
+                      <td>HE201703</td>
+                      <td>Home Economics</td>
+                      <td class="assesmentEdit" data-target="#modal-modifyAssement"><i class="fa fa-pencil"></i></td>
+                      <td class="assesmentDelete"><i class="fa fa-trash"></i></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- /.box-conent -->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!--/.box-->   
+        </div>
+        <!--====================
+                Modals
+            ====================-->
+        <!-- modal addUser-->
+        <div class="modal fade" id="modal-addUser">
+          <div class="modal-dialog" style="width:600px;margin-right: auto; margin-left: auto;">
+            <div class="modal-content" style="background-image: url('img/bg3.png'); color: white;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: white">&times;</span></button>
+                <h4 class="modal-title">Create user account</h4>
+              </div>
+              <div class="modal-body">
+                <form role="form" class="form-horizontal" id="addUser">
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Name</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="name" placeholder="name" class="form-control input" data-validation="required" data-validation-error-msg="User's name required">
+                    </div>
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Surname</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="surname" placeholder="surname" class="form-control input" data-validation="required" data-validation-error-msg="User's surname required">
+                    </div>
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">User Type</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2 input" data-placeholder="User Type" style="width: 100%;">
+                      <option class="input">Normal</option>
+                      <option class="input">Admin</option>
+                    </select>
+                    </div>                    
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <!-- replace with text sujestion-->
+                    <label class="control-label col-xs-2">Class</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2 input" name="classes_taught" multiple="multiple" data-placeholder="Classes you teach" style="width: 100%;" data-validation="required" data-validation-error-msg="Teacher must have classes">
+                      <option>1A</option>
+                      <option>1B</option>
+                      <option>2A</option>
+                      <option>2B</option>
+                      <option>3A</option>
+                      <option>3B</option>
+                    </select>
+                    </div>      
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Subject</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2" name="subject" multiple="multiple" data-placeholder="Select a Subject"
+                            style="width: 100%;" data-validation="required" data-validation-error-msg="Subject required">
+                      <option selected="selected">Agriculture</option>
+                      <option>Art</option>
+                      <option>Commerce and Book Keeping/Accounting</option>
+                      <option>Commerce and Office Procedures</option>
+                      <option>Computer Studies</option>
+                      <option>Design and Technology</option>
+                      <option>Home Economics</option>
+                      <option>Integrated Science</option>
+                      <option>Mathematics</option>
+                      <option>Moral Education</option>
+                      <option>Music</option>
+                      <option>Physical Education</option>
+                      <option>Religious Education</option>
+                      <option>Setswana</option>
+                      <option>Social Studies</option>
+                    </select>
+                    </div>             
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Username</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="username" placeholder="username" class="form-control input" ata-validation="required" data-validation-error-msg="username required">
+                    </div>   
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Password</label>
+                    <div class="col-xs-10">
+                      <input type="password" name="password" placeholder="password" class="form-control input" data-validation="strength" data-validation-strength="2">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-default">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- modal editUser-->
+        <div class="modal fade" id="modal-editUser">
+          <div class="modal-dialog" style="width:600px;margin-right: auto; margin-left: auto;">
+            <div class="modal-content" style="background-image: url('img/bg3.png'); color: white;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: white">&times;</span></button>
+                <h4 class="modal-title">Edit user account</h4>
+              </div>
+              <div class="modal-body">
+                <form role="form" class="form-horizontal" id="editUserForm">
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Name</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="name" value="Kgosi" class="form-control input" data-validation="required" data-validation-error-msg="User's name required">
+                    </div>
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Surname</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="surname" value="Kenntse0365" class="form-control input" data-validation="required" data-validation-error-msg="User's surname required">
+                    </div>
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">User Type</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2 input" data-placeholder="User Type" name="userType" style="width: 100%;">
+                      <option class="input" selected="selected">Normal</option>
+                      <option class="input">Admin</option>
+                    </select>
+                    </div>                    
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <!-- replace with text sujestion-->
+                    <label class="control-label col-xs-2">Class</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2 input" name="classes" multiple="multiple"  data-placeholder="Classes you teach" style="width: 100%;" data-validation="required" data-validation-error-msg="Teacher must have classes">
+                      <option selected="selected">1A</option>
+                      <option>1B</option>
+                      <option selected="selected">2A</option>
+                      <option>2B</option>
+                      <option selected="selected">3A</option>
+                      <option>3B</option>
+                    </select>
+                    </div>      
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Subject</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2" name="subjects" data-placeholder="Select a Subject"
+                            style="width: 100%;" data-validation="required" data-validation-error-msg="Subject required">
+                      <option>Agriculture</option>
+                      <option>Art</option>
+                      <option>Commerce and Book Keeping/Accounting</option>
+                      <option>Commerce and Office Procedures</option>
+                      <option selected="selected">Computer Studies</option>
+                      <option>Design and Technology</option>
+                      <option>Home Economics</option>
+                      <option>Integrated Science</option>
+                      <option>Mathematics</option>
+                      <option>Moral Education</option>
+                      <option>Music</option>
+                      <option>Physical Education</option>
+                      <option>Religious Education</option>
+                      <option>Setswana</option>
+                      <option>Social Studies</option>
+                    </select>
+                    </div>             
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Username</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="username" value="Kenntse0365" class="form-control input" data-validation="required" data-validation-error-msg="username required">
+                    </div>   
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Password</label>
+                    <div class="col-xs-10">
+                      <input type="password" name="password" value="" class="form-control input" data-validation="strength" data-validation-strength="2">
+                    </div>
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-default">Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- modal Register Students-->
+        <div class="modal fade" id="modal-addStudent">
+          <div class="modal-dialog" style="width:600px;margin-right: auto; margin-left: auto;">
+            <div class="modal-content" style="background-image: url('img/bg3.png'); color: white;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: white">&times;</span></button>
+                <h4 class="modal-title">Register Student</h4>
+              </div>
+              <div class="modal-body">
+                <form role="form" class="form-horizontal" id="registerStudent">
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Name</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="name" placeholder="name" class="form-control input" data-validation="required" data-validation-error-msg="Student name required">
+                    </div>
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Surname</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="surname" placeholder="surname" class="form-control input" data-validation="required" data-validation-error-msg="Student surname required">
+                    </div>
+                  </div>
+                  <!-- /.form-group --> 
+                  <div class="form-group">
+                    <!-- replace with text sujestion-->
+                    <label class="control-label col-xs-2">Gender</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2 input" name="gender" data-placeholder="Gender" style="width: 100%;" data-validation="required" data-validation-error-msg="Assign student a gender">
+                      <option>Male</option>
+                      <option>Female</option>
+                    </select>
+                    </div>      
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <!-- replace with text sujestion-->
+                    <label class="control-label col-xs-2">Class</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2 input" data-placeholder="Class" style="width: 100%;" data-validation="required" data-validation-error-msg="Assign student a class">
+                      <option>1A</option>
+                      <option>1B</option>
+                      <option>2A</option>
+                      <option>2B</option>
+                      <option>3A</option>
+                      <option>3B</option>
+                    </select>
+                    </div>      
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Subjects</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2" name="subject" multiple="multiple" data-placeholder="Select a Subject"
+                            style="width: 100%;" data-validation="required" data-validation-error-msg="Assign student subjects">
+                      <option selected="selected">Agriculture</option>
+                      <option>Art</option>
+                      <option>Commerce and Book Keeping/Accounting</option>
+                      <option>Commerce and Office Procedures</option>
+                      <option>Computer Studies</option>
+                      <option>Design and Technology</option>
+                      <option>Home Economics</option>
+                      <option>Integrated Science</option>
+                      <option>Mathematics</option>
+                      <option>Moral Education</option>
+                      <option>Music</option>
+                      <option>Physical Education</option>
+                      <option>Religious Education</option>
+                      <option>Setswana</option>
+                      <option>Social Studies</option>
+                    </select>
+                    </div>             
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-default" >Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- modal Edit Students-->
+        <div class="modal fade" id="modal-editStudent">
+          <div class="modal-dialog" style="width:600px;margin-right: auto; margin-left: auto;">
+            <div class="modal-content" style="background-image: url('img/bg3.png'); color: white;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: white">&times;</span></button>
+                <h4 class="modal-title">Modify Student</h4>
+              </div>
+              <div class="modal-body">
+                <form role="form" class="form-horizontal" id="editStudentForm">
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Name</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="name" value="Elias" class="form-control input" data-validation="required" data-validation-error-msg="Student required">
+                    </div>
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Surname</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="surname" value="Bayona" class="form-control input" data-validation="required" data-validation-error-msg="student's surname required">
+                    </div>
+                  </div>
+                  <!-- /.form-group --> 
+                  <div class="form-group">
+                    <!-- replace with text sujestion-->
+                    <label class="control-label col-xs-2">Gender</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2 input" name="gender" data-placeholder="Gender" style="width: 100%;" data-validation="required" data-validation-error-msg="Student Gender required">
+                      <option selected="selected">Male</option>
+                      <option>Female</option>
+                    </select>
+                    </div>      
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <!-- replace with text sujestion-->
+                    <label class="control-label col-xs-2">Class</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2 input" name="class" data-placeholder="Class" style="width: 100%;" data-validation="required" data-validation-error-msg="Please assign student a class">
+                      <option>1A</option>
+                      <option>1B</option>
+                      <option>2A</option>
+                      <option>2B</option>
+                      <option>3A</option>
+                      <option selected="selected">3B</option>
+                    </select>
+                    </div>      
+                  </div>
+                  <!-- /.form-group -->
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Subjects</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2" name="subjects" multiple="multiple" data-placeholder="Select a Subject"
+                            style="width: 100%;" data-validation="required" data-validation-error-msg="Assign student subjects">
+                      <option selected="selected">Agriculture</option>
+                      <option>Art</option>
+                      <option>Commerce and Book Keeping/Accounting</option>
+                      <option>Commerce and Office Procedures</option>
+                      <option selected="selected">Computer Studies</option>
+                      <option>Design and Technology</option>
+                      <option>Home Economics</option>
+                      <option selected="selected">Integrated Science</option>
+                      <option selected="selected">Mathematics</option>
+                      <option selected="selected">Moral Education</option>
+                      <option>Music</option>
+                      <option selected="selected">Physical Education</option>
+                      <option>Religious Education</option>
+                      <option selected="selected">Setswana</option>
+                      <option selected="selected">Social Studies</option>
+                    </select>
+                    </div>             
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-default" >Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- modal Create Class-->
+        <div class="modal fade" id="modal-createClass">
+          <div class="modal-dialog" style="width:600px;margin-right: auto; margin-left: auto;">
+            <div class="modal-content" style="background-image: url('img/bg3.png'); color: white;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: white">&times;</span></button>
+                <h4 class="modal-title">Create Class</h4>
+              </div>
+              <div class="modal-body">
+                <form role="form" class="form-horizontal" id="createClass">
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Name</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="name" placeholder="name" class="form-control input" data-validation="required" data-validation-error-msg="PLease assign the class a name">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <!-- replace with text sujestion-->
+                    <label class="control-label col-xs-2">Class Teacher</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2 input" name="classTeacher" data-placeholder="class teacher" style="width: 100%;" data-validation="required" data-validation-error-msg="Please assign a class teacher">
+                      <option>Jain Doe</option>
+                      <option>John Doe</option>
+                    </select>
+                    </div>      
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-default" >Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- modal modify Class-->
+        <div class="modal fade" id="modal-modifyClass">
+          <div class="modal-dialog" style="width:600px;margin-right: auto; margin-left: auto;">
+            <div class="modal-content" style="background-image: url('img/bg3.png'); color: white;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: white">&times;</span></button>
+                <h4 class="modal-title">Modify Classes</h4>
+              </div>
+              <div class="modal-body">
+                <form role="form" class="form-horizontal" id="modifyClassForm">
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Name</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="name" value="name" class="form-control input" data-validation="required" data-validation-error-msg="Class name required">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <!-- replace with text sujestion-->
+                    <label class="control-label col-xs-2">Class Teacher</label>
+                    <div class="col-xs-10">
+                      <select class="form-control select2 input" name="classTeacher" data-placeholder="class teacher" style="width: 100%;" data-validation="required" data-validation-error-msg="Class teacher required">
+                      <option selected="selected">Jain Doe</option>
+                      <option>John Doe</option>
+                    </select>
+                    </div>      
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-default" >Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- modal Create Assement-->
+        <div class="modal fade" id="modal-createAssement">
+          <div class="modal-dialog" style="width:600px;margin-right: auto; margin-left: auto;">
+            <div class="modal-content" style="background-image: url('img/bg3.png'); color: white;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: white">&times;</span></button>
+                <h4 class="modal-title">Create Assement</h4>
+              </div>
+              <div class="modal-body">
+                <form role="form" class="form-horizontal" id="createAssementForm">
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Assement Name</label>
+                    <div class="col-xs-10">
+                      <input type="text" name="name" placeholder="name" class="form-control input" data-validation="required" data-validation-error-msg="Assement name required">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Date:</label>
+
+                    <div class="col-xs-10">
+                        <div class="input-group date">
+                          <div class="input-group-addon" style="border:0px; background-color: rgb(26, 34, 38)">
+                            <i class="fa fa-calendar" ></i>
+                          </div>
+                          <input type="text" name="date" class="form-control input datepicker" id="datepicker" data-validation="required" data-validation-error-msg="Date required">
+                        </div>
+                        <!-- /.input group --> 
+                    </div>
+                   
+                  </div>
+                  <!-- /.form group -->
+                  <div class="form-group">
+                   <div class="col-xs-2">
+                     <label class="control-label">Number of Papers:</label>
+                   </div>
+                   
+                   <div class="col-xs-10">
+                    <input class="form-control input paperCount" type="number" name="numberOfPapers" value="1" data-validation="required" data-validation-error-msg="Number of papers required">
+                   </div>
+                  </div>
+                  <div class="form-group papers" >
+                    <div class="row">
+                      <div class="col-xs-2 col-xs-push-2">
+                        <label class="control-label">Paper 1</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-xs-2 col-xs-push-3">
+                        <label class="control-label">Weight:</label>
+                      </div> 
+                      <div class="col-xs-4 col-xs-push-2">
+                        <input class="form-control input" type="number" name="weight1" value="100" data-validation="required" data-validation-error-msg="Paper weight required">
+                      </div>
+                    </div>
+                    
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-default" >Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+        <!-- modal Edit Assements-->
+        <div class="modal fade" id="modal-modifyAssement">
+          <div class="modal-dialog" style="width:600px;margin-right: auto; margin-left: auto;">
+            <div class="modal-content" style="background-image: url('img/bg3.png'); color: white;">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true" style="color: white">&times;</span></button>
+                <h4 class="modal-title">Modify Assement</h4>
+              </div>
+              <div class="modal-body">
+                <form role="form" class="form-horizontal" id="modifyAssementForm">
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Assement Name</label>
+                    <div class="col-xs-10">
+                      <div id="assement-error-dialog"></div>
+                      <input type="text" name="name" placeholder="name" class="form-control input" data-validation="required" data-validation-error-msg="Assement name required"  data-validation-error-msg-container="#assement-error-dialog">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="control-label col-xs-2">Date:</label>
+
+                    <div class="col-xs-10">
+                        <div class="input-group date">
+                          <div class="input-group-addon" style="border:0px; background-color: rgb(26, 34, 38)">
+                            <i class="fa fa-calendar" ></i>
+                          </div>
+                          <div id="date-error-dialog"></div>
+                          <input type="text" name="date" class="form-control input datepicker" id="datepicker" data-validation="required" data-validation-error-msg="Date required"  data-validation-error-msg-container="#date-error-dialog">
+                        </div>
+                        <!-- /.input group --> 
+                    </div>
+                   
+                  </div>
+                  <!-- /.form group -->
+                  <div class="form-group">
+                   <div class="col-xs-2">
+                     <label class="control-label">Number of Papers:</label>
+                   </div>
+                   
+                   <div class="col-xs-10">
+                     <input class="form-control input paperCount" type="number" name="numberOfPapers" value="1" data-validation="required" data-validation-error-msg="Papers written required">
+                   </div>
+                  </div>
+                  <div class="form-group papers">
+                    <div class="row">
+                      <div class="col-xs-2 col-xs-push-2">
+                        <label class="control-label">Paper 1</label>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="col-xs-2 col-xs-push-3">
+                        <label class="control-label">Weight:</label>
+                      </div> 
+                      <div class="col-xs-4 col-xs-push-2">
+                        <input class="form-control input" type="number" name="weight1" value="100" data-validation="required" data-validation-error-msg="Paper weight required">
+                      </div>
+                    </div>
+                    
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-default" >Save changes</button>
+              </div>
+            </div>
+            <!-- /.modal-content -->
+          </div>
+          <!-- /.modal-dialog -->
+        </div>
+        <!-- /.modal -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer" style="background-color: transparent; color: white">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      <strong><a href="#">UNIVERSITY OF BOTSWANA COMPUTER SCIENCE DEPARTMENT</a></strong>
+    </div>
+    <!-- Default to the left -->
+    <strong>Powered by <a href="#">UBCICT.</a></strong>.
+  </footer>     
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+<!-- Select2 -->
+<script src="bower_components/select2/dist/js/select2.full.min.js"></script>
+<!-- DataTables -->
+<script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+<script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+<!-- bootstrap datepicker -->
+<script src="bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- form validator -->
+<script src="plugins/jQuery_Form_Validator_files/jquery.form-validator.min.js"></script>
+<!-- App.js -->
+<script src="dist/js/app.js" type="text/javascript"></script>
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+<script type="text/javascript">
+    $(function(){
+    $(".select2").select2()
+  })
+</script>
+</body>
+</html>

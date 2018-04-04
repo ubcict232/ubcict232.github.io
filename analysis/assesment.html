@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Analysis</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. -->
+  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+    <style type="text/css">
+      td>input{
+        background-color: gray;
+        border:none;
+      }
+      .subject{
+      text-align: left;
+
+      }
+      tr{
+      line-height: 1;
+      max-height: 1.5em;
+      }
+      td{
+        padding: 8px;
+        vertical-align:middle;
+      }
+      td > input{
+        border: none; 
+        width: 50px; 
+        text-align: center;
+        background-color: transparent;
+      }
+    
+      table{
+        border:solid 1px gray;
+        /*margin: 50px;*/
+        font-weight: 300;
+        font-size: 11pt
+      }
+      th, td{
+        border: solid 1px gray;
+        vertical-align:middle;
+      }
+      table>tbody>tr>td{
+        vertical-align: middle;
+      }
+    </style>
+</head>
+<body class="hold-transition skin-blue sidebar-mini fixed"  style="background-image: url('img/bg3.png'); background-size: cover;">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>A</b></span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Analysis</b></span>
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav">
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="login.html">
+              <!-- The user image in the navbar-->
+              <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+              <span class="hidden-xs">logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar" >
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+        </div>
+        <div class="pull-left info">
+          <p>Teacher's name</p>
+          <!-- Status -->
+          <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+        </div>
+      </div>
+
+      <!-- search form (Optional) -->
+      <form action="#" method="get" class="sidebar-form">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search...">
+          <span class="input-group-btn">
+              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
+              </button>
+            </span>
+        </div>
+      </form>
+      <!-- /.search form -->
+
+      <!-- Sidebar Menu -->
+      <ul class="sidebar-menu" data-widget="tree">
+        
+        <!-- Optionally, you can add icons to the links -->
+        <li><a href="index.html"><i class="fa fa-link"></i> <span>Home</span></a></li>
+        <li class="active"><a href="exams.html"><i class="fa fa-link"></i> <span>Assements</span></a></li>
+        <li><a href="reports.html"><i class="fa fa-link"></i> <span>Reports</span></a></li>
+      </ul>
+      <!-- /.sidebar-menu -->
+    </section>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper" style="background-color: transparent;">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <ol class="breadcrumb">
+        <li><a href="starter.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li><a href="exams.html"> Assesments</a></li>
+        <li>Mathematics paper 1</li>
+      </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+        <div class="col-md-1">
+          
+        </div>
+        <!-- /.col -->
+        <div class="col-md-7">
+          <div class="box">
+            <div class="box-header with-border" style="background-color: rgba(255, 255, 255, 0.2); color: white; border:none">
+              <h3 class="box-title">Class</h3>
+              <a target="_blank" class="btn btn-default" id="nav_forward" style="background-color: #1e282c; border:0px; color: white; float:right;margin-right:50px;"><i class="fa fa-angle-double-right"></i></a>
+              <a target="_blank" class="btn btn-default" id="save" style="background-color: #1e282c; border:0px; color: white; float:right;margin-right:10px;"><i class="fa fa-save"></i></a>
+              <a target="_blank" class="btn btn-default" id="nav_back" style="background-color: #1e282c; border:0px; color: white; float:right;margin-right:10px;"><i class="fa  fa-angle-double-left"></i></a>
+              
+              <div class="box-tools pull-right">
+                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                </button>
+              </div>
+              <!-- /.box-tools -->
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <div class="box-content"  style="height: auto; overflow: auto; ">
+                  <form role="form">
+                    <table class="table table-condensed text-center" style="color: white">
+                    <thead>
+                      <tr style="line-height: 1em; ">
+                        <th style="width: 200px; vertical-align: middle">Students</th>
+                        <th style="width: 50px; padding:12px 5px; vertical-align: middle">%</th>
+                        <th style="width: 50px; vertical-align: middle">Grade</th>
+                        <th style="width: 50px; vertical-align: middle">Score</th>     
+                      </tr>     
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style="text-align: left;">John Mackenzi</td>
+                        <td id="JohnPercentage" class="Subject"> 76 </td>
+                        <td id="JOhnGrade">B</td>
+                        <td id="JohnScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Aladin Giene</td>
+                        <td id="AladinPercentage" class="Subject"> 76 </td>
+                        <td id="AladinGrade">B</td>
+                        <td id="AladinScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Mick Boldwen</td>
+                        <td id="MickPercentage" class="Subject"> 76 </td>
+                        <td id="MickGrade">B</td>
+                        <td id="MickScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Aladin Giene</td>
+                        <td id="AladinPercentage" class="Subject"> 76 </td>
+                        <td id="AladinGrade">B</td>
+                        <td id="AladinScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Aladin Giene</td>
+                        <td id="AladinPercentage" class="Subject"> 76 </td>
+                        <td id="AladinGrade">B</td>
+                        <td id="AladinScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Mick Boldwen</td>
+                        <td id="MickPercentage" class="Subject"> 76 </td>
+                        <td id="MickGrade">B</td>
+                        <td id="MickScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Aladin Giene</td>
+                        <td id="AladinPercentage" class="Subject"> 76 </td>
+                        <td id="AladinGrade">B</td>
+                        <td id="AladinScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Mick Boldwen</td>
+                        <td id="MickPercentage" class="Subject"> 76 </td>
+                        <td id="MickGrade">B</td>
+                        <td id="MickScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">John Mackenzi</td>
+                        <td id="JohnPercentage" class="Subject"> 76 </td>
+                        <td id="JOhnGrade">B</td>
+                        <td id="JohnScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Aladin Giene</td>
+                        <td id="AladinPercentage" class="Subject"> 76 </td>
+                        <td id="AladinGrade">B</td>
+                        <td id="AladinScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">John Mackenzi</td>
+                        <td id="JohnPercentage" class="Subject"> 76 </td>
+                        <td id="JOhnGrade">B</td>
+                        <td id="JohnScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Aladin Giene</td>
+                        <td id="AladinPercentage" class="Subject"> 76 </td>
+                        <td id="AladinGrade">B</td>
+                        <td id="AladinScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">John Mackenzi</td>
+                        <td id="JohnPercentage" class="Subject"> 76 </td>
+                        <td id="JOhnGrade">B</td>
+                        <td id="JohnScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Aladin Giene</td>
+                        <td id="AladinPercentage" class="Subject"> 76 </td>
+                        <td id="AladinGrade">B</td>
+                        <td id="AladinScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">John Mackenzi</td>
+                        <td id="JohnPercentage" class="Subject"> 76 </td>
+                        <td id="JOhnGrade">B</td>
+                        <td id="JohnScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Aladin Giene</td>
+                        <td id="AladinPercentage" class="Subject"> 76 </td>
+                        <td id="AladinGrade">B</td>
+                        <td id="AladinScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">John Mackenzi</td>
+                        <td id="JohnPercentage" class="Subject"> 76 </td>
+                        <td id="JOhnGrade">B</td>
+                        <td id="JohnScore"><input type="number" name="Score" ></td>
+                      </tr>
+                      <tr>
+                        <td style="text-align: left;">Aladin Giene</td>
+                        <td id="AladinPercentage" class="Subject"> 76 </td>
+                        <td id="AladinGrade">B</td>
+                        <td id="AladinScore"><input type="number" name="Score" ></td>
+                      </tr>
+                    </tbody>
+                  </table> 
+                  </form>
+                   
+              </div>
+        <!-- /.box-conent -->
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+          
+        </div>
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer" style="background-color: transparent; color: white">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      <strong><a href="#">UNIVERSITY OF BOTSWANA COMPUTER SCIENCE DEPARTMENT</a></strong>
+    </div>
+    <!-- Default to the left -->
+    <strong>Powered by <a href="#">UBCICT.</a></strong>.
+  </footer>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function(){
+      $('#save').click(function(){
+        //TODO add loading or progress animation
+        $('.box-body').fadeOut(1000).fadeIn(1000);
+      })
+      $('#nav_back').click(function(){
+        $('.box-body').fadeOut(1000).fadeIn(1000);
+      })
+      $('#nav_forward').click(function(){
+        $('.box-body').fadeOut(1000).fadeIn(1000);
+      })
+    })
+  </script>
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+</body>
+</html>
